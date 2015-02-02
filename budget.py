@@ -5,12 +5,15 @@ from sys import argv, exit
 FOOD = [
   "A & W",
   "BC LIQUOR",
+  "BREKA BAKERY",
   "CHURCH'S CHICKEN",
   "DENNY'S",
   "FATBURGER",
+  "COCKNEY KINGS",
   "GRILL",
   "ICE CREAM",
   "MCDONALD",
+  "MENCHIE",
   "MEXICAN",
   "PANAGO",
   "PIZZA",
@@ -18,6 +21,7 @@ FOOD = [
   "PUB",
   "RED ROBIN",
   "RESTARUANT",
+  "STARBUCKS",
   "SUBWAY",
   "SUPERSTORE",
   "SUSHI",
@@ -25,20 +29,34 @@ FOOD = [
 
 GAS = ['CHEVRON', 'ESSO']
 
+UTILITIES = ['TELUS', 'SHAW', '7 ELEVEN CANADA']
+
 ELECTRONICS = ['NCIX', 'ELECTRONIC', 'FARNEL']
+
+TRANSPORTATION = ['HONDA', 'PARKING']
 
 ENTERTAINMENT = ['FAMOUS PLAYER', 'CINEPLEX']
 
-CLOTHING = ["MARK'S WORK WEARHOUSE"]
+CLOTHING = ["MARK'S WORK WEARHOUSE", 'NEW BALANCE']
 
-CAR = ['HONDA', 'ICBC', 'PARKING']
+INSURANCE = ['ICBC']
 
-NECESSITY = []
+MEDICAL = ['FALSE CREEK EYE CARE']
 
-MISC = ['TELUS', 'SHAW']
+HOUSEHOLD = ['IKEA']
 
-catTable = [FOOD, GAS, ELECTRONICS, ENTERTAINMENT, CLOTHING, CAR, NECESSITY, MISC]
-outHdr = ['Date', 'Description', 'Food', 'Gas', 'Electronics', 'Entertainment', 'Clothing', 'Car', 'Necessities', 'Misc', 'Adjustments', 'Uncat']
+PERSONAL = []
+
+GIFTS = []
+
+MISC = []
+
+catTable = [FOOD, GAS, UTILITIES, ELECTRONICS, TRANSPORTATION, ENTERTAINMENT,
+            CLOTHING, INSURANCE, MEDICAL, HOUSEHOLD, PERSONAL, GIFTS, MISC]
+
+outHdr = ['Date', 'Description', 'Food', 'Gas', 'Utilities', 'Electronics', 'Transportation',
+          'Entertainment', 'Clothing', 'Insurance', 'Medical', 'Household', 'Personal', 'Gifts', 'Misc', 'Adjustments', 'Uncat']
+
 outMonth = [['Jan'], ['Feb'], ['Mar'], ['Apr'], ['May'], ['Jun'], ['Jul'], ['Aug'], ['Sep'], ['Oct'], ['Nov'], ['Dec']]
 
 # Searches through list of categories and returns the ID
@@ -57,6 +75,10 @@ def budget(inFile):
       [date, desc, monOut, monIn] = row[0:4]
       if 'PAYMENT - THANK YOU' in desc:
         # Payment, ignore
+        print 'Ignored: %r' % row
+        continue
+      if 'ANNUAL CASH REBATE' in desc:
+        # Rebate, ignore
         print 'Ignored: %r' % row
         continue
       # Set up output
