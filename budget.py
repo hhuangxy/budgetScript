@@ -4,6 +4,7 @@ from sys import argv, exit
 
 FOOD = [
   "A & W",
+  "A&W",
   "BC LIQUOR",
   "BREKA BAKERY",
   "CHURCH'S CHICKEN",
@@ -12,6 +13,7 @@ FOOD = [
   "COCKNEY KINGS",
   "GRILL",
   "ICE CREAM",
+  "KISHIMOTO",
   "MCDONALD",
   "MENCHIE",
   "MEXICAN",
