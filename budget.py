@@ -6,7 +6,10 @@ FOOD = [
   "A & W",
   "A&W",
   "BC LIQUOR",
+  "BAR",
   "BREKA BAKERY",
+  "BISTRO",
+  "CACTUS CLUB",
   "CHURCH'S CHICKEN",
   "DENNY'S",
   "FATBURGER",
@@ -27,7 +30,8 @@ FOOD = [
   "SUBWAY",
   "SUPERSTORE",
   "SUSHI",
-  "TOMOKAZU"]
+  "TOMOKAZU",
+  "ZIPANG PROVISIONS"]
 
 GAS = ['CHEVRON', 'ESSO']
 
