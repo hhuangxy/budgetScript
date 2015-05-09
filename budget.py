@@ -5,18 +5,21 @@ from sys import argv, exit
 FOOD = [
   "A & W",
   "A&W",
-  "BC LIQUOR",
+  "BAKERY",
   "BAR",
-  "BREKA BAKERY",
+  "BBQ",
   "BISTRO",
+  "BREW",
   "CACTUS CLUB",
   "CHURCH'S CHICKEN",
-  "DENNY'S",
-  "FATBURGER",
   "COCKNEY KINGS",
+  "DENNY'S",
+  "EAST IS EAST",
+  "FATBURGER",
   "GRILL",
   "ICE CREAM",
   "KISHIMOTO",
+  "LIQUOR",
   "MCDONALD",
   "MENCHIE",
   "MEXICAN",
@@ -30,9 +33,12 @@ FOOD = [
   "SUBWAY",
   "SUPERSTORE",
   "SUSHI",
+  "THAI",
   "TOMOKAZU",
+  "WHITE SPOT",
   "ZIPANG PROVISIONS"]
 
+  
 GAS = ['CHEVRON', 'ESSO']
 
 UTILITIES = ['TELUS', 'SHAW', '7 ELEVEN CANADA']
@@ -49,7 +55,7 @@ INSURANCE = ['ICBC']
 
 MEDICAL = ['FALSE CREEK EYE CARE']
 
-HOUSEHOLD = ['IKEA']
+HOUSEHOLD = ['IKEA', 'HOME DEPOT']
 
 PERSONAL = []
 
@@ -127,11 +133,15 @@ def toCSV(outFdr):
       print month[0] + ' Success!'
 
 if __name__ == "__main__":
-  if len(argv) != 3:
+  if len(argv) == 2:
+    argv.append('.')
+  elif len(argv) == 3:
+    # OK
+    pass
+  else:
     print 'Invalid Arguments'
     print 'python budget.py <input file> <output folder>'
     exit()
 
   budget(argv[1])
   toCSV(argv[2])
-
