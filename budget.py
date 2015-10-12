@@ -18,6 +18,8 @@ FOOD = [
   "FATBURGER",
   "GRILL",
   "ICE CREAM",
+  "INSADONG",
+  "KFC",
   "KISHIMOTO",
   "LIQUOR",
   "MCDONALD",
@@ -28,34 +30,37 @@ FOOD = [
   "PMC SIERRA",
   "PUB",
   "RED ROBIN",
-  "RESTARUANT",
+  "RESTAURAN",
   "STARBUCKS",
   "SUBWAY",
+  "SUN SUI WAH",
   "SUPERSTORE",
   "SUSHI",
+  "T&T",
   "THAI",
+  "THE LAST CRUMB",
   "TOMOKAZU",
   "WHITE SPOT",
-  "ZIPANG PROVISIONS"]
+  "ZIPANG PROVISIONS"
+]
 
-  
-GAS = ['CHEVRON', 'ESSO']
+GAS = ['CHEVRON', 'ESSO', 'PETROCAN']
 
-UTILITIES = ['TELUS', 'SHAW', '7 ELEVEN CANADA']
+UTILITIES = ['7 ELEVEN CANADA', 'TELUS', 'SHAW']
 
-ELECTRONICS = ['NCIX', 'ELECTRONIC', 'FARNEL']
+ELECTRONICS = ['ELECTRONIC', 'FARNEL', 'NCIX']
 
 TRANSPORTATION = ['HONDA', 'PARKING']
 
-ENTERTAINMENT = ['FAMOUS PLAYER', 'CINEPLEX']
+ENTERTAINMENT = ['CINEPLEX', 'FAMOUS PLAYER', 'STEAMGAMES']
 
 CLOTHING = ["MARK'S WORK WEARHOUSE", 'NEW BALANCE']
 
 INSURANCE = ['ICBC']
 
-MEDICAL = ['FALSE CREEK EYE CARE']
+MEDICAL = ['DR A.C.K. CHEUNG', 'FALSE CREEK EYE CARE', 'KINTEC FOOTLABS', 'PHARMASAVE']
 
-HOUSEHOLD = ['IKEA', 'HOME DEPOT']
+HOUSEHOLD = ['BED BATH & BEYOND', 'CDN TIRE STORE', 'HOME DEPOT', 'IKEA', 'PIER 1 IMPORTS']
 
 PERSONAL = []
 
@@ -71,7 +76,10 @@ outHdr = ['Date', 'Description', 'Food', 'Gas', 'Utilities', 'Electronics', 'Tra
 
 outMonth = [['Jan'], ['Feb'], ['Mar'], ['Apr'], ['May'], ['Jun'], ['Jul'], ['Aug'], ['Sep'], ['Oct'], ['Nov'], ['Dec']]
 
-# Searches through list of categories and returns the ID
+
+##########################################################
+# Searches through list of categories and returns the ID #
+##########################################################
 def catSearch(catTable, desc):
   for cat in catTable:
     for type in cat:
@@ -79,7 +87,10 @@ def catSearch(catTable, desc):
         return catTable.index(cat)
   return -1
 
-# Main budget categorizer
+
+###########################
+# Main budget categorizer #
+###########################
 def budget(inFile):
   with open(inFile, 'rU') as fh:
     fcsv = csv.reader(fh, delimiter=',')
@@ -112,7 +123,10 @@ def budget(inFile):
       month = int(date.split('/')[0])-1
       outMonth[month].append(outRow)
 
-# Write outMonth to CSV
+
+#########################
+# Write outMonth to CSV #
+#########################
 def toCSV(outFdr):
   for month in outMonth:
     if len(month) > 1:
